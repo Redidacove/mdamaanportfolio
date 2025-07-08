@@ -3,8 +3,7 @@
 Welcome to my personal portfolio website! This site showcases my background, featured projects, technical skills, and ways to connect with me. Built with modern web technologies, it reflects my design sensibilities and development capabilities as a full-stack software engineer.
 ## 🌐 Live Demo
 
-[👉 Visit the live site](https://mdamaanportfolio.lovable.app/)
-(replace with actual deployed link)
+[👉 Visit the live site](https://mdamaanportfolio.lovable.app)
 ## 📸 Screenshots
 <!-- Add screenshots if available -->
 ![Home page](src/assets/Website.png)    
