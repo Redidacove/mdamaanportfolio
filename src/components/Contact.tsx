@@ -1,5 +1,9 @@
 
 import { useEffect, useRef, useState } from 'react';
+import gmailIcon from '../assets/gmail.png';
+import callIcon from '../assets/call.png';
+import locationIcon from '../assets/location.jpg';
+import resumeIcon from '../assets/resume1.png';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,12 +51,12 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
             Let's Work <span className="gradient-text">Together</span>
           </h2>
-          
+
           <p className="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto">
-            Ready to bring your next project to life? I'd love to hear from you! 
+            Ready to bring your next project to life? I'd love to hear from you!
             Drop me a message and let's create something amazing together.
           </p>
-          
+
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div className="space-y-8">
               <div>
@@ -60,7 +64,7 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl">
-                      📧
+                      <img src={gmailIcon} alt="Email" className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
@@ -69,16 +73,16 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl">
-                      📱
+                      <img src={callIcon} alt="Email" className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="font-medium">Phone</p>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
+                      <p className="text-gray-600">+91 9007650816</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl">
-                      📍
+                      <img src={locationIcon} alt="Email" className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="font-medium">Location</p>
@@ -87,31 +91,35 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-2xl">
                 <h4 className="font-semibold text-gray-800 mb-4">Ready to collaborate?</h4>
                 <p className="text-gray-600 text-sm mb-4">
-                  Whether you need a blockchain developer, want to discuss Ethereum projects, 
+                  Whether you need a blockchain developer, want to discuss Ethereum projects,
                   or just want to connect about Rust/Go development, I'm always excited to hear about new opportunities!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <a 
+                  <a
                     href="mailto:mdamaan2xx1@gmail.com"
-                    className="group bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center font-medium"
+                    className="group flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
                   >
-                    📧 Email Me
+                    <img src={gmailIcon} alt="Email" className="w-5 h-5" />
+                    Email Me
                   </a>
-                  <a 
+
+                  <a
                     href="/lovable-uploads/29c6d13e-336b-4c1e-9963-d2c5056c0506.png"
                     download="MD_Amaan_Resume.pdf"
-                    className="group bg-white border-2 border-purple-200 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 hover:border-purple-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center font-medium"
+                    className="group flex items-center gap-2 bg-white border-2 border-purple-200 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 hover:border-purple-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
                   >
-                    📄 Resume
+                    
+                    <img src={resumeIcon} alt="Resume" className="w-5 h-5" />
+                    Resume
                   </a>
                 </div>
               </div>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

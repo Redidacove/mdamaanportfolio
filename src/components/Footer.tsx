@@ -1,11 +1,16 @@
+import githubIcon from '../assets/github.jpg';
+import twitterIcon from '../assets/x.png';
+import linkedIcon from '../assets/linkedin.png';
+import mediumIcon from '../assets/medium.png';
+import gmailIcon from '../assets/gmail.png';
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'GitHub', icon: '🐙', url: 'https://github.com/mdamaan' },
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/mdamaan' },
-    { name: 'Twitter', icon: '🐦', url: 'https://twitter.com/mdamaan' },
-    { name: 'Medium', icon: '📝', url: 'https://medium.com/@mdamaan' },
-    { name: 'Email', icon: '📧', url: 'mailto:mdamaan2xx1@gmail.com' }
+    { name: 'GitHub', icon: githubIcon, url: 'https://github.com/Redidacove' },
+    { name: 'LinkedIn', icon: linkedIcon, url: 'https://www.linkedin.com/in/md-amaan-305010229' },
+    { name: 'Twitter', icon: twitterIcon, url: 'https://twitter.com/0xmdamaan' },
+    { name: 'Medium', icon: mediumIcon, url: 'https://medium.com/@md.amaan.cse25' },
+    { name: 'Email', icon: gmailIcon, url: 'mailto:mdamaan2xx1@gmail.com' }
   ];
 
   return (
@@ -15,12 +20,12 @@ const Footer = () => {
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-4">Thanks for visiting!</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              If you made it this far, you're pretty awesome! 🎉 
-              I'd love to connect and hear about what you're working on. 
+              If you made it this far, you're pretty awesome! 🎉
+              I'd love to connect and hear about what you're working on.
               Hit me up on any of these platforms:
             </p>
           </div>
-          
+
           <div className="flex justify-center space-x-6 mb-8">
             {socialLinks.map((link) => (
               <a
@@ -31,7 +36,13 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <div className="text-2xl group-hover:scale-125 transition-transform duration-300">
-                  {link.icon}
+                  {typeof link.icon === 'string' && link.icon.startsWith('http') || link.icon.startsWith('/') ? (
+                    <img src={link.icon} alt={link.name} className="w-8 h-8 rounded-full" />
+                  ) : typeof link.icon === 'string' && link.icon.length === 1 ? (
+                    <span>{link.icon}</span>
+                  ) : (
+                    <img src={link.icon} alt={link.name} className="w-8 h-8 rounded-full" />
+                  )}
                 </div>
                 <span className="text-sm text-gray-300 group-hover:text-white">
                   {link.name}
@@ -39,10 +50,10 @@ const Footer = () => {
               </a>
             ))}
           </div>
-          
+
           <div className="border-t border-gray-700 pt-6">
             <p className="text-gray-400 text-sm">
-              © 2024 MD Amaan. Made with ❤️ and lots of ☕
+              © 2024 MD Amaan
             </p>
             <p className="text-gray-500 text-xs mt-2">
               Built with React, TypeScript & Tailwind CSS
