@@ -57,12 +57,16 @@ const About = () => {
               </div>
             </div>
             
-            <div className="relative">
-              <div className="w-80 h-80 mx-auto relative">
-                <div className="w-full h-full bg-gradient-to-br from-purple-400 via-pink-400 to-purple-600 rounded-3xl transform rotate-6 absolute"></div>
-                <div className="w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-purple-700 rounded-3xl transform -rotate-6 absolute shadow-2xl flex items-center justify-center">
-                  <div className="text-6xl text-white">👨‍💻</div>
+            <div className="relative flex justify-center">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                  <img 
+                    src="/lovable-uploads/4c6afaa3-4ec2-4730-a31d-0bc901baf70b.png"
+                    alt="MD Amaan - Software Engineer"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-purple-700/20"></div>
               </div>
             </div>
           </div>

@@ -102,7 +102,7 @@ const Contact = () => {
                     📧 Email Me
                   </a>
                   <a 
-                    href="/resume.pdf"
+                    href="/lovable-uploads/29c6d13e-336b-4c1e-9963-d2c5056c0506.png"
                     download="MD_Amaan_Resume.pdf"
                     className="group bg-white border-2 border-purple-200 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 hover:border-purple-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center font-medium"
                   >
