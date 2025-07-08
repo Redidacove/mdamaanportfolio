@@ -39,9 +39,9 @@ const Hobbies = () => {
       description: 'Running, cycling, and maintaining a healthy lifestyle'
     },
     {
-      icon: '📷',
-      title: 'Photography',
-      description: 'Capturing moments and exploring creative perspectives'
+      icon: '♟️',
+      title: 'Chess',
+      description: 'Strategic thinking and competitive gameplay'
     },
     {
       icon: '🎵',

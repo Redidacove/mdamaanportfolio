@@ -24,32 +24,46 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '🛒',
-      link: '#'
+      title: 'Tonelli Shanks Algorithm - Rust',
+      description: 'Rust implementation of the Tonelli-Shanks Algorithm for computing square roots in finite fields. A mathematical computational project demonstrating advanced algorithmic implementations.',
+      tech: ['Rust', 'Algorithm', 'Mathematics', 'Cryptography'],
+      image: '🦀',
+      link: 'https://github.com/Redidacove/Tonelli_shanks_Algo_Rust'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface.',
-      tech: ['TypeScript', 'React', 'Firebase', 'Material-UI'],
+      title: 'Prysm - Ethereum Client',
+      description: 'Forked Go implementation of Ethereum proof of stake. Contributing to Ethereum consensus layer development and blockchain infrastructure.',
+      tech: ['Go', 'Ethereum', 'Blockchain', 'Consensus'],
+      image: '⛓️',
+      link: 'https://github.com/Redidacove/prysm'
+    },
+    {
+      title: 'Ethereum Consensus Specs',
+      description: 'Fork of Ethereum Proof-of-Stake Consensus Specifications. Working on understanding and contributing to Ethereum\'s core consensus mechanisms.',
+      tech: ['Python', 'Ethereum', 'Specifications', 'Research'],
       image: '📋',
-      link: '#'
+      link: 'https://github.com/Redidacove/consensus-specs'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather application with detailed forecasts, interactive maps, and location-based services using modern APIs.',
-      tech: ['React', 'API Integration', 'Charts.js', 'Tailwind'],
-      image: '🌤️',
-      link: '#'
+      title: 'File Transfer Tool',
+      description: 'Go-based file transfer application for efficient and secure file sharing. Demonstrates systems programming and network communication skills.',
+      tech: ['Go', 'Networking', 'File Systems', 'CLI'],
+      image: '📁',
+      link: 'https://github.com/Redidacove/file_transfer'
     },
     {
-      title: 'Portfolio Website',
-      description: 'Personal portfolio website showcasing projects and skills with modern design, animations, and responsive layout.',
-      tech: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
-      image: '💼',
-      link: '#'
+      title: 'JSON API Server',
+      description: 'RESTful API server built in Go for handling JSON data operations. Clean architecture with proper HTTP handling and data management.',
+      tech: ['Go', 'REST API', 'JSON', 'HTTP'],
+      image: '🔗',
+      link: 'https://github.com/Redidacove/json-api'
+    },
+    {
+      title: 'Quiz CLI Application',
+      description: 'Command-line quiz application built in Go. Interactive terminal-based game with scoring system and user-friendly interface.',
+      tech: ['Go', 'CLI', 'Terminal UI', 'Games'],
+      image: '🎯',
+      link: 'https://github.com/Redidacove/Quiz_Cli_Go'
     }
   ];
 
@@ -94,12 +108,22 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex gap-4 pt-4">
-                    <button className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transform hover:scale-105 transition-all duration-300">
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transform hover:scale-105 transition-all duration-300 inline-block"
+                    >
                       View Project
-                    </button>
-                    <button className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-primary hover:text-primary transform hover:scale-105 transition-all duration-300">
+                    </a>
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-primary hover:text-primary transform hover:scale-105 transition-all duration-300 inline-block"
+                    >
                       Source Code
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
