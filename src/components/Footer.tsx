@@ -5,7 +5,7 @@ const Footer = () => {
     { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/mdamaan' },
     { name: 'Twitter', icon: '🐦', url: 'https://twitter.com/mdamaan' },
     { name: 'Medium', icon: '📝', url: 'https://medium.com/@mdamaan' },
-    { name: 'Email', icon: '📧', url: 'mailto:mdamaan@example.com' }
+    { name: 'Email', icon: '📧', url: 'mailto:mdamaan2xx1@gmail.com' }
   ];
 
   return (

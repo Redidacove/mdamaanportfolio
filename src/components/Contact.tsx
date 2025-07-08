@@ -64,7 +64,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-gray-600">mdamaan@example.com</p>
+                      <p className="text-gray-600">mdamaan2xx1@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -82,19 +82,33 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-gray-600">Available for Remote Work</p>
+                      <p className="text-gray-600">Kolkata, India</p>
                     </div>
                   </div>
                 </div>
               </div>
               
               <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-2xl">
-                <h4 className="font-semibold text-gray-800 mb-2">Ready to collaborate?</h4>
-                <p className="text-gray-600 text-sm">
-                  Whether you need a full-stack developer for your startup, 
-                  want to discuss a freelance project, or just want to connect, 
-                  I'm always excited to hear about new opportunities!
+                <h4 className="font-semibold text-gray-800 mb-4">Ready to collaborate?</h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  Whether you need a blockchain developer, want to discuss Ethereum projects, 
+                  or just want to connect about Rust/Go development, I'm always excited to hear about new opportunities!
                 </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a 
+                    href="mailto:mdamaan2xx1@gmail.com"
+                    className="group bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center font-medium"
+                  >
+                    📧 Email Me
+                  </a>
+                  <a 
+                    href="/resume.pdf"
+                    download="MD_Amaan_Resume.pdf"
+                    className="group bg-white border-2 border-purple-200 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 hover:border-purple-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center font-medium"
+                  >
+                    📄 Resume
+                  </a>
+                </div>
               </div>
             </div>
             
