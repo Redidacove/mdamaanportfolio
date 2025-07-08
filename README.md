@@ -7,7 +7,7 @@ Welcome to my personal portfolio website! This site showcases my background, fea
 (replace with actual deployed link)
 ## 📸 Screenshots
 <!-- Add screenshots if available -->
-    ![Home Page](./src/assets/Website.png)
+    ![Home Page](src/assets/Website.png)
 
 ## 🛠️ Tech Stack
 
