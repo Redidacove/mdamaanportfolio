@@ -1,5 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
+import { supabase } from '../integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 import gmailIcon from '../assets/gmail.png';
 import callIcon from '../assets/call.png';
 import locationIcon from '../assets/location.jpg';
@@ -7,12 +9,14 @@ import resumeIcon from '../assets/resume1.png';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
   const sectionRef = useRef<HTMLElement>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,10 +35,64 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      // Store submission in database
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }
+        ]);
+
+      if (dbError) {
+        throw new Error(`Database error: ${dbError.message}`);
+      }
+
+      // Send email notification  
+      const emailResponse = await fetch('https://klzwoyvalwnbeniqhulk.supabase.co/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtsendveXZhbHduYmVuaXFodWxrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwNDkzMjMsImV4cCI6MjA2NzYyNTMyM30.mrrHjmFHOwT8G3z3RAShQEOjeTQedNnvNNHYdmtB0NA`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!emailResponse.ok) {
+        const errorData = await emailResponse.json();
+        throw new Error(`Email service error: ${errorData.error || 'Failed to send email'}`);
+      }
+
+      // Success
+      toast({
+        title: "Message sent successfully! 🎉",
+        description: "Thank you for reaching out! I'll get back to you soon. Check your email for a confirmation.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Something went wrong",
+        description: error.message || "Failed to send message. Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -165,9 +223,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
+                disabled={isSubmitting}
+                className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                Send Message 🚀
+                {isSubmitting ? 'Sending...' : 'Send Message 🚀'}
               </button>
             </form>
           </div>
