@@ -24,45 +24,67 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { name, email, message }: ContactEmailRequest = await req.json();
 
-    // Send thank you email to the user
+    // Send thank you email to the user with email verification
     const userEmailResponse = await resend.emails.send({
       from: "MD Amaan <onboarding@resend.dev>",
       to: [email],
-      subject: "Thank you for reaching out!",
+      subject: "Thank you for reaching out! 🚀",
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #8b5cf6; text-align: center;">Thank You for Reaching Out!</h1>
-          <p>Hi ${name},</p>
-          <p>Thank you for your message! I really appreciate you taking the time to connect with me.</p>
-          
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #374151; margin-top: 0;">Your Message:</h3>
-            <p style="color: #6b7280; font-style: italic;">"${message}"</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; padding: 20px;">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: #8b5cf6; margin-bottom: 10px;">Thank You for Reaching Out!</h1>
+            <p style="color: #6b7280; font-size: 16px;">Hi ${name}, I'm excited to connect with you! 🎉</p>
           </div>
           
-          <p>I'll get back to you as soon as possible, usually within 24 hours.</p>
+          <div style="background: linear-gradient(135deg, #f8fafc, #e0e7ff); padding: 25px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #8b5cf6;">
+            <h3 style="color: #374151; margin-top: 0; margin-bottom: 15px;">Your Message:</h3>
+            <p style="color: #4b5563; font-style: italic; line-height: 1.6; margin: 0;">"${message}"</p>
+          </div>
           
-          <p>In the meantime, feel free to check out my work or schedule a meeting:</p>
-          <div style="text-align: center; margin: 30px 0;">
+          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 25px 0;">
+            <p style="margin: 0 0 15px 0; color: #374151;">Thank you for your interest! I really appreciate you taking the time to connect with me.</p>
+            <p style="margin: 0; color: #374151;"><strong>I'll get back to you within 24 hours.</strong></p>
+          </div>
+          
+          <div style="text-align: center; margin: 35px 0;">
+            <p style="color: #6b7280; margin-bottom: 20px;">Want to schedule a meeting right away? Let's chat!</p>
             <a href="${Deno.env.get("CALENDLY_LINK")}" 
                style="background: linear-gradient(135deg, #8b5cf6, #ec4899); 
                       color: white; 
-                      padding: 12px 24px; 
+                      padding: 15px 30px; 
                       text-decoration: none; 
-                      border-radius: 8px; 
+                      border-radius: 10px; 
                       display: inline-block;
-                      font-weight: bold;">
-              Schedule a Meeting
+                      font-weight: bold;
+                      font-size: 16px;
+                      box-shadow: 0 4px 6px rgba(139, 92, 246, 0.3);
+                      transition: all 0.3s ease;">
+              📅 Schedule a Meeting
             </a>
           </div>
           
-          <p>Looking forward to our conversation!</p>
-          <p>Best regards,<br><strong>MD Amaan</strong><br>Blockchain Developer</p>
+          <div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #f59e0b;">
+            <h4 style="color: #92400e; margin-top: 0; margin-bottom: 10px;">🚀 What I can help you with:</h4>
+            <ul style="color: #78350f; margin: 0; padding-left: 20px;">
+              <li>Blockchain Development & Smart Contracts</li>
+              <li>Ethereum & Web3 Projects</li>
+              <li>Rust & Go Development</li>
+              <li>Technical Consulting & Architecture</li>
+            </ul>
+          </div>
           
-          <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
-          <p style="font-size: 12px; color: #9ca3af; text-align: center;">
-            This email was sent because you contacted me through my portfolio website.
-          </p>
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+            <p style="color: #374151; margin-bottom: 5px;">Best regards,</p>
+            <p style="color: #1f2937; font-weight: bold; margin: 0;"><strong>MD Amaan</strong></p>
+            <p style="color: #6b7280; margin: 5px 0 0 0;">Blockchain Developer & Web3 Enthusiast</p>
+          </div>
+          
+          <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #f3f4f6;">
+            <p style="font-size: 12px; color: #9ca3af;">
+              This email was sent because you contacted me through my portfolio website.<br>
+              If you have any questions, feel free to reply to this email.
+            </p>
+          </div>
         </div>
       `,
     });

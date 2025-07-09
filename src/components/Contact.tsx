@@ -71,9 +71,12 @@ const Contact = () => {
       }
 
       // Success
+      const emailResult = await emailResponse.json();
       toast({
         title: "Message sent successfully! 🎉",
-        description: "Thank you for reaching out! I'll get back to you soon. Check your email for a confirmation.",
+        description: emailResult.userEmailId 
+          ? "Thank you for reaching out! Check your email for a confirmation with my Calendly link." 
+          : "Thank you for reaching out! I'll get back to you soon.",
       });
 
       // Reset form
